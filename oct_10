@@ -1,0 +1,20 @@
+/*
+List in desc order the amount of uploaded 
+orders (artworks) by each artist.
+Excluding orders uploaded by the Indian team. AWS.
+*/
+SELECT  Artist, count(Logo) AS Uploads
+FROM `case-studies-101.Uploads.20231010`
+WHERE Artist <> "AWS"
+GROUP BY Artist
+ORDER BY Uploads DESC
+-- Top Performer: JB:Jose Benitez.
+
+-- Uploaded orders by region, US: All North America and UK: All Europe.
+-- Excluding orders uploaded by the Indian team. AWS.
+SELECT  Region, count(Logo) AS Uploads
+FROM `case-studies-101.Uploads.20231010`
+WHERE Artist <> "AWS"
+GROUP BY Region
+ORDER BY Uploads DESC
+-- US: 86 / UK:70
